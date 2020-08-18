@@ -2,6 +2,12 @@
 
 西安交通大学成绩查询排名计算爬虫
 
+## V2.0 Preview
+
+这个项目正在用utils重构中
+项目进度: [@guitaoliu](https://github.com/guitaoliu/xjtu-grade)
+`utils` 同步进度
+
 ## 项目简介
 
 今年暑期学校教务处突然开启了成绩排名可查询，听说之前也开放过后来关了就想写个爬虫把数据记录下来
