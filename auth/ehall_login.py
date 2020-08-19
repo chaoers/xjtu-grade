@@ -33,7 +33,7 @@ def ehall_login() -> requests.Session:
         }
     )
 
-    data = json.loads(resp.text)
+    data = resp.json()
     captcha = ''
     if data['data']:
         resp = session.post(
@@ -42,7 +42,7 @@ def ehall_login() -> requests.Session:
                 'Content-Type': 'application/json;charset=UTF-8'
             }
         )
-        data = json.loads(resp.text)
+        data = resp.json()
         img = base64.b64decode(data['data'])
         with open('captcha.png', 'wb') as file:
             file.write(img)
@@ -63,7 +63,7 @@ def ehall_login() -> requests.Session:
         }
     )
 
-    data = json.loads(resp.text)
+    data = resp.json()
     if data['code'] != 0:
         return False
 
@@ -77,7 +77,7 @@ def ehall_login() -> requests.Session:
             '_': get_timestamp()
         }
     )
-    data = json.loads(resp.text)
+    data = resp.json()
 
     resp = session.get(
         'https://org.xjtu.edu.cn/openplatform/oauth/auth/getRedirectUrl',
@@ -87,7 +87,7 @@ def ehall_login() -> requests.Session:
             '_': get_timestamp()
         }
     )
-    data = json.loads(resp.text)
+    data = resp.json()
 
     if data['code'] != 0:
         return False
